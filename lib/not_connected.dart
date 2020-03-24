@@ -1,48 +1,50 @@
-
-
-//import 'package:connectivity/connectivity.dart';
-//import 'package:monitordefib/connected.dart';
-
 import 'image_banner.dart';
+import 'home.dart';
 import 'package:flutter/material.dart';
 import 'package:monitordefib/text_section.dart';
+import 'nav_drawer.dart';
 
 class NotConnected extends StatelessWidget {
+  String flag;
+
+  NotConnected(this.flag);
+
   @override
-  var _wifiname;
-
-  NotConnected(this._wifiname);
-
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Defibrilator Monitor'),
+      appBar: new AppBar(
+        backgroundColor: Color(0xff0900c3),
+
+        title: Image.asset("assets/images/app_banner.png")
       ),
-      body: Column(
+      drawer: NavDrawer(),
+      body:
+      Column(
+
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ImageBanner("assets/images/icons8-wi-fi-disconnected-512.png"),
-            RaisedButton(child: Text("Check Connectivity"), onPressed: null),
-            TextSection(
-                "Setup",
-                "In order to setup a connection to the"
-                    "monitor, you need to connect to the Wifi:"
-                    "\r\n"
-                    "\r\n Name:         defib_monitor"
-                    "\r\n Password:   heartsavior "),
+            const SizedBox(height: 40),
+            ImageBanner("assets/images/icons8-disconnected-256.png"),
+            const SizedBox(height: 40),
+            TextSection("You're connected to " + flag + " network",
+                "Please connect to the correct Acesspoint and try again."),
+            const SizedBox(height: 40),
+            new SizedBox(
+              width: 220.0,
+              height: 50.0,
+              child: new RaisedButton(
+                color: Color(0xff0075f6),
+                child: new Text('Try Again',
+                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                onPressed: (){
+                  Home().checkConnectivity(context);
+                },
+              ),
+            ),
+
+
           ]),
     );
   }
-
- /* _checkConnectivity() async {
-    var result = await Connectivity().checkConnectivity();
-    if (result == ConnectivityResult.none) {
-    } else if (result == ConnectivityResult.wifi) {
-      var wifiName = await (Connectivity().getWifiName());
-      var wifiIP = await (Connectivity().getWifiIP());
-
-      _wifiname = Connectivity().getWifiName();
-    }
-  }*/
 }
