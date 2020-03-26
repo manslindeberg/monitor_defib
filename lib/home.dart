@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:monitordefib/text_section.dart';
 import 'not_connected.dart';
 import 'nav_drawer.dart';
+import 'data.dart';
 
 class Home extends StatelessWidget {
   var wifiBSSID;
@@ -14,18 +15,20 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Color(0xff0900c3),
+          backgroundColor: Color(0xff6807f9),
           title: Image.asset(
             "assets/images/app_banner.png",
             fit: BoxFit.contain,
           )),
       drawer: NavDrawer(),
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xffe6e6fa),
       body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(height: 40),
             ImageBanner("assets/images/icons8-information-256.png"),
+            const SizedBox(height: 40),
             TextSection(
                 "Setup",
                 "In order to setup a connection to the"
@@ -39,7 +42,7 @@ class Home extends StatelessWidget {
               width: 220.0,
               height: 50.0,
               child: new RaisedButton(
-                color: Color(0xff0075f6),
+                color: Colors.lightBlueAccent,
                 child: new Text(
                   'Check Connectivity',
                   style: TextStyle(
@@ -85,7 +88,8 @@ class Home extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => NotConnected(wifiIP.toString())),
+            builder: (context) => NotConnected(" the wrong "),
+          ),
         );
       }
     }

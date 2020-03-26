@@ -17,12 +17,12 @@ const TitleTextStyle = TextStyle(
   fontFamily: FontNameDefault,
   fontWeight: FontWeight.w300,
   fontSize: LargeTextSize,
-  color: Colors.black,
+  color: Color(0xff2d3999),
 );
 
 const Body1TextStyle = TextStyle(
   fontFamily: FontNameDefault,
   fontWeight: FontWeight.w300,
   fontSize: BodyTextSize,
-  color: Colors.black,
+  color: Color(0xff2d3999),
 );

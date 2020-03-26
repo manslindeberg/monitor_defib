@@ -21,7 +21,7 @@ class NavDrawer extends StatelessWidget {
                 image: DecorationImage(
                     fit: BoxFit.cover,
                     image:
-                        AssetImage('assets/images/defibrillator_monitor.png'))),
+                        AssetImage('assets/images/app-bar.jpg'))),
           ),
           ListTile(
             leading: Icon(Icons.wifi),

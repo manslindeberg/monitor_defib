@@ -19,19 +19,18 @@ class Info extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ImageBanner("assets/images/defibrillator_monitor.png"),
-            TextSection("About", "Defibrillator Monitor is a project"
-                "made by four students at the faculty of Electrical engineering"
-                " at Lund University."
+            const SizedBox(height: 40),
+            ImageBanner("assets/images/icons8-github-256.png"),
+            TextSection("About", "github.com/manslindeberg/monitor_defib"
                 "\r\n"
                 "\r\n"
                 "The purpose of this app is to gain"
-                "necessary information about the status of your prefered "
+                " necessary information about the status of your prefered "
                 "defibrillator, in order for it to work properly when needed"
                 "\r\n"
                 "\r\n"
-                " The contributors of this project are Axel Sneitz-Björkman, Ludvig Hansson"
-                "Måns Lindeberg and Oskar Nilveus Olofsson"),
+                "The contributors of this project are Axel Sneitz-Björkman, Ludvig Hansson"
+                " Måns Lindeberg and Oskar Nilveus Olofsson"),
           ]),
     );
   }
