@@ -26,9 +26,7 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 40),
             ImageBanner("assets/images/icons8-information-256.png"),
-            const SizedBox(height: 40),
             TextSection(
                 "Setup",
                 "In order to setup a connection to the"
@@ -37,7 +35,6 @@ class Home extends StatelessWidget {
                     "\r\n"
                     "\r\n Name:          Arduino"
                     "\r\n Password:   arduino"),
-            const SizedBox(height: 40),
             new SizedBox(
               width: 220.0,
               height: 50.0,
@@ -78,7 +75,7 @@ class Home extends StatelessWidget {
       wifiIP = await (Connectivity().getWifiIP());
       wifiName = await (Connectivity().getWifiName());
 
-      if (wifiIP.toString().compareTo("192.168.10.209") == 0) {
+      if (wifiIP.toString().compareTo("192.168.4.2") == 0) {
         // Connected to the correct network
         Navigator.push(
           context,

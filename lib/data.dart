@@ -8,8 +8,7 @@ import 'text_section.dart';
 import 'style.dart';
 
 Future<Data> fetchData() async {
-  final response =
-      await http.get('https://jsonplaceholder.typicode.com/albums/1');
+  final response = await http.get('http://192.168.4.1:80', headers: {"Accept": "application/json"});
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
@@ -53,26 +52,19 @@ class FetchData extends StatelessWidget {
       backgroundColor: Color(0xffe6e6fa),
       drawer: NavDrawer(),
       body: Center(
-        child: FutureBuilder<Data>(
-          future: futureData,
+        child: StreamBuilder(
+          stream: Stream.periodic(Duration(seconds:1 ))
+          .asyncMap((i) => fetchData())  ,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return Column(
                children: [const SizedBox(height: 40),
-                 const SizedBox(height: 40),
                 Image.asset("assets/images/icons8-comparator-96.png"),
                  Center(
-                     child: new Text("Voltage", style: TitleTextStyle)),
-              //snapshot.data.volt
-
-
-                 const SizedBox(height: 40),
-                 const SizedBox(height: 40),
+                     child: new Text("Voltage: " + snapshot.data.volt , style: TitleTextStyle)),
                 Image.asset("assets/images/icons8-temperature-96.png"),
                  Center(
-                     child: new Text("Temperature", style: TitleTextStyle)),
-                 const SizedBox(height: 40),
-                 const SizedBox(height: 40),
+                     child: new Text("Temperature: " + snapshot.data.temp + " °C", style: TitleTextStyle)),
                 Image.asset("assets/images/icons8-information-96.png"),
                  Center(
                      child: new Text("Status", style: TitleTextStyle)),
@@ -86,4 +78,7 @@ class FetchData extends StatelessWidget {
       ),
     );
   }
+
 }
+
+
