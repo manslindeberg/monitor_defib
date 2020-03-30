@@ -25,12 +25,9 @@ class NotConnected extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 40),
             ImageBanner("assets/images/icons8-disconnected-256.png"),
-            const SizedBox(height: 40),
             TextSection("You're connected to " + flag + " network",
                 "Please connect to the correct Acesspoint and try again."),
-            const SizedBox(height: 40),
             new SizedBox(
               width: 220.0,
               height: 50.0,
